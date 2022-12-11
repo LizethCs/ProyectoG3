@@ -1,22 +1,30 @@
 package backend_g3.demo.modelo;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Document("Pacientevet")
+//la primera anotación que hago es que este es un documento:
+
+@Document("pacientevet")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+
 public class PacientevetModelo {
     @Id
-    private String id_Pacientevet; //id de la mascota
-    private String nickname; //Apodo o nombre de mascota
-    private String OwnerName; //Nombre del dueño
-    private String OwnerLastname; //apellido del dueño
-    
+    private String id;
+    private String nombremascota;
+    private String mascota;
+    private String raza;
+    private String edad;
+    private List<String> enfermedades; //ej:["moquillo","rabia"]
+    private Object propietario; //ej: propietario:{nombre:" ",apellido:" ",direccion:" ",telefono:" ",ndocumento: " "}
 }
