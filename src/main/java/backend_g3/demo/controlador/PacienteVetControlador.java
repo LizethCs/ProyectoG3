@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.RequestMethod;
 import backend_g3.demo.modelo.PacientevetModelo;
 import backend_g3.demo.servicio.PacientevetServicio;
 
@@ -22,7 +22,7 @@ import backend_g3.demo.servicio.PacientevetServicio;
 
 @RestController
 @RequestMapping("/pacientevet")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*" , methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE})
 
 //microservicio para el paciente veterinario
 public class PacienteVetControlador {

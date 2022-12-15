@@ -2,10 +2,8 @@ package backend_g3.demo.servicio;
 
 import java.util.Comparator;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import backend_g3.demo.modelo.HistorialmedModelo;
 import backend_g3.demo.repositorio.*;
 
@@ -27,6 +25,15 @@ public class HistorialmedServicio {
     //servicio para guardar historial medico
     public HistorialmedModelo saveHistorialmed(HistorialmedModelo historialmed){
         return historialmedRepositorio.save(historialmed);
+    }
+
+    public String eliminarPorId(String id) {
+        if (historialmedRepositorio.existsById(id)) {
+            historialmedRepositorio.deleteById(id);
+            return "Historial médico eliminado.";
+        } else {
+            return "No eliminado.";
+        }
     }
     
 

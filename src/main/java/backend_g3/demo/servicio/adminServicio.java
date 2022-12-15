@@ -43,9 +43,9 @@ public class adminServicio{
         if (adminRepo.existsById(id)) {
             Optional<adminModelo> admin = adminRepo.findById(id);
             adminRepo.deleteById(id);
-            return "Admin " + admin.get().getName() + " Eliminado";
+            return "Admin " + admin.get().getName() + " eliminado.";
         } else {
-            return "No Eliminado";
+            return "No eliminado.";
         }
     }
 }

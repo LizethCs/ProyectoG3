@@ -25,9 +25,9 @@ public class PacientevetServicio {
         boolean estado= pacientevet.getId() == null || !pacientevetRepositorio.existsById(pacientevet.getId());
         //validar si el paciente veterinario que nos mandan guardar viene con un id o no
         if(estado){
-            return "se guardo el paciente";
+            return "Se guardó el paciente.";
         }else{
-            return "se actualiza el paciente";
+            return "Se actualizó el paciente.";
         }
     }
 
@@ -59,9 +59,9 @@ public class PacientevetServicio {
         if(pacientevetRepositorio.existsById(id)){
             Optional<PacientevetModelo> pacientevet = pacientevetRepositorio.findById(id);
             pacientevetRepositorio.deleteById(id);
-            return "paciente"+pacientevet.get().getNombremascota()+"Eliminado";
+            return "Paciente"+ pacientevet.get().getNombremascota() +"eliminado.";
         }else{
-            return "no eliminado";
+            return "No eliminado.";
         }
     }
 

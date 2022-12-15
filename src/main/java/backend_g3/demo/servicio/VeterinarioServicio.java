@@ -33,4 +33,14 @@ public class VeterinarioServicio {
     public Optional<VeterinarioModelo> getVeterinarioById(String id){
         return veterinarioRepositorio.findById(id);
     }
+
+    public String eliminarPorId(String id) {
+        if (veterinarioRepositorio.existsById(id)) {
+            Optional<VeterinarioModelo> vet = veterinarioRepositorio.findById(id);
+            veterinarioRepositorio.deleteById(id);
+            return "Veterinario " + vet.get().getNombre() +" eliminado.";
+        } else {
+            return "No eliminado.";
+        }
+    }
 }
