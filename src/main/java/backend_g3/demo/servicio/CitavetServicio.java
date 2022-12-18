@@ -29,17 +29,6 @@ public class CitavetServicio {
         return citavetRepositorio.save(citavet);
     }
     
-
-//     admin.setName(admin.getName().toLowerCase());
-//     admin.setLastname(admin.getLastname().toLowerCase());
-//     boolean estado=admin.getId_admin() == null || !adminRepo.existsById(admin.getId_admin());
-//     adminRepo.save(admin);
-//     if (estado) {
-//         return "Se guardó el administrador";
-//     } else {
-//         return "Se actualizó el administrador";
-//     }
-// }
     //servicio para buscar cita veterinaria por nombre veterinario:
     public List<CitavetModelo> getCitavetByNombreveterinario(String nombreveterinario){
         return citavetRepositorio.findByNombreveterinario(nombreveterinario);
