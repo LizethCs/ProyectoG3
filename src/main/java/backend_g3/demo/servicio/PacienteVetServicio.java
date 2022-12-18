@@ -18,17 +18,13 @@ public class PacientevetServicio {
     PacientevetRepositorio pacientevetRepositorio;
 
     //servicio para guardar paciente veterinario (pasar nombre, mascota y raza)
-    public String guardarPacientevet(PacientevetModelo pacientevet){
+    public void guardarPacientevet(PacientevetModelo pacientevet){
         pacientevet.setNombremascota(pacientevet.getNombremascota().toLowerCase());
         pacientevet.setMascota(pacientevet.getMascota().toLowerCase());
         pacientevet.setRaza(pacientevet.getRaza().toLowerCase());
-        boolean estado= pacientevet.getId() == null || !pacientevetRepositorio.existsById(pacientevet.getId());
+        pacientevetRepositorio.save(pacientevet);
         //validar si el paciente veterinario que nos mandan guardar viene con un id o no
-        if(estado){
-            return "Se guardó el paciente.";
-        }else{
-            return "Se actualizó el paciente.";
-        }
+       
     }
 
     //servicio para ordenar alfabeticamente los nombres de los pacientes:

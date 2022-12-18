@@ -1,5 +1,4 @@
 package backend_g3.demo.servicio;
-
 import java.util.Comparator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +6,7 @@ import org.springframework.stereotype.Service;
 import backend_g3.demo.modelo.CitavetModelo;
 import backend_g3.demo.repositorio.CitavetRepositorio;
 import backend_g3.demo.repositorio.VeterinarioRepositorio;
+
 
 
 @Service
@@ -23,11 +23,23 @@ public class CitavetServicio {
     return citavet;
    }
 
-    //servicio para guardar cita:
+
     public CitavetModelo saveCitavet(CitavetModelo citavet){
+        boolean estado=citavet.getId() == null || !citavetRepositorio.existsById(citavet.getId());
         return citavetRepositorio.save(citavet);
     }
     
+
+//     admin.setName(admin.getName().toLowerCase());
+//     admin.setLastname(admin.getLastname().toLowerCase());
+//     boolean estado=admin.getId_admin() == null || !adminRepo.existsById(admin.getId_admin());
+//     adminRepo.save(admin);
+//     if (estado) {
+//         return "Se guardó el administrador";
+//     } else {
+//         return "Se actualizó el administrador";
+//     }
+// }
     //servicio para buscar cita veterinaria por nombre veterinario:
     public List<CitavetModelo> getCitavetByNombreveterinario(String nombreveterinario){
         return citavetRepositorio.findByNombreveterinario(nombreveterinario);

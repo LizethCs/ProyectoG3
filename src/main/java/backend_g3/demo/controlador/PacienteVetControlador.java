@@ -54,8 +54,8 @@ public class PacienteVetControlador {
     }
     
     @PostMapping
-    public String savePacientevet(@RequestBody PacientevetModelo paciente){
-        return pacientevetServicio.guardarPacientevet(paciente);
+    public void savePacientevet(@RequestBody PacientevetModelo paciente){
+         pacientevetServicio.guardarPacientevet(paciente);
     }
 
     //Delete maping asociado al servicio eliminar paciente veterinaria por id
